@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
         User user = userRepository.findUserByUserId(userId);
         Department department = restTemplate.getForObject(
-                "http://localhost:9001/departments/" + user.getDepartmentId(),
+                "http://DEPARTMENT-SERVICE/departments/" + user.getDepartmentId(),
                 Department.class);
 
         userResponse.setUser(user);
