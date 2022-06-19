@@ -5,6 +5,8 @@ import com.cloud.department.service.impl.entity.Department;
 import com.cloud.department.service.impl.repository.DepartmentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentRepository departmentRepository;
@@ -21,5 +23,15 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department findDepartmentById(Long departmentId) {
         return departmentRepository.findDepartmentByDepartmentId(departmentId);
+    }
+
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 }

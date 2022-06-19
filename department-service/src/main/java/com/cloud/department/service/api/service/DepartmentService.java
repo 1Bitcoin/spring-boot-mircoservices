@@ -10,4 +10,6 @@ public interface DepartmentService {
     Department saveDepartment(Department department);
 
     Department findDepartmentById(Long departmentId);
+
+    int getRandomNumberInRange(int min, int max);
 }

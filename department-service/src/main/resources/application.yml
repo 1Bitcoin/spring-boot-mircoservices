@@ -6,6 +6,19 @@ spring:
   application:
     name: DEPARTMENT-SERVICE
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info,metric
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+
 eureka:
   client:
     register-with-eureka: true
